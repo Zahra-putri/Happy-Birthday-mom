@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff9f4;
+            overflow-x: hidden;
+        }
+        .section {
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            z-index: 2; /* Supaya tetap di atas balon efek */
+        }
+        /* Greeting Section */
+        .greeting-section {
+            background-color: #f8ded7;
+            padding: 30px 10px;
+        }
+        .greeting-section img {
+            width: 300px;
+            margin: 30px;
+        }
+        .greeting-text {
+            font-size: 30px;
+            color: #444;
+            margin-top: 10px;
+        }
+        .balloons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .balloon {
+            width: 50px;
+            height: 70px;
+            background-color: pink;
+            border-radius: 50%;
+            position: relative;
+            animation: float 4s ease-in-out infinite;
+        }
+        .balloon:nth-child(2) {
+            background-color: yellow;
+            animation-delay: 1s;
+        }
+        .balloon:nth-child(3) {
+            background-color: lightblue;
+            animation-delay: 2s;
+        }
+        .balloon:before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 40px;
+            background-color: #888;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+        /* Envelope Section */
+        .envelope-section {
+            margin-top: 30px;
+        }
+        .envelope img {
+            width: 250px;
+            cursor: pointer;
+            animation: float 3s ease-in-out infinite;
+        }
+        .envelope-instruction {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #666;
+        }
+        .letter {
+            display: none;
+            background-color: #ffdede;
+            padding: 20px;
+            margin: 20px auto;
+            width: 80%;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            font-size: 18px;
+            color: #333;
+        }
+        /* Cake and Gift Section */
+        .cake-gift {
+            margin-top: 30px;
+        }
+        .cake-gift img {
+            width: 120px;
+            margin: 10px;
+            cursor: pointer;
+            animation: float 4s ease-in-out infinite;
+        }
+        .gift-instruction {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #666;
+        }
+        .video-container {
+            display: none;
+            margin-top: 20px;
+            z-index: 3; /* Pastikan video berada di atas balon efek */
+            position: relative;
+        }
+        .video-container video {
+            width: 80%;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        /* Balloons Effect */
+        #balloon-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1; /* Balon efek tetap di belakang elemen interaktif */
+        }
+        .floating-balloon {
+            position: absolute;
+            width: 40px;
+            height: 60px;
+            background-color: red;
+            border-radius: 50%;
+            animation: fly 5s ease-in-out infinite;
+        }
+        @keyframes fly {
+            0% {
+                transform: translateY(100vh);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-200px);
+                opacity: 0;
+            }
+        }
+        /* Footer */
+        .footer {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #888;
+            text-align: center;
+            z-index: 2;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <!-- Section 1: Greeting -->
+    <div class="greeting-section">
+        <img src="ibu1.jpg" alt="Mom Picture">
+        
+        <div class="greeting-text">Happy Birthday Mom  - 47th</div>
+        <div class="balloons">
+            <div class="balloon"></div>
+            <div class="balloon"></div>
+            <div class="balloon"></div>
+        </div>
+    </div>
+
+    <!-- Section 2: Envelope and Letter -->
+    <div class="section envelope-section">
+        <div class="envelope" onclick="toggleLetter()">
+            <img src="amplop.png" alt="Envelope">
+        </div>
+        <div class="envelope-instruction">Tekan amplop untuk membuka surat!</div>
+        <div class="letter" id="letter">
+            <p>Dear Mom,</p>
+            <p>Selamat ulang tahun, Ibu. Terima kasih telah menjadi sosok yang selalu ada untukku, membimbingku, dan selalu peduli padaku. Ibu adalah inspirasiku untuk menjadi pribadi yang lebih baik dan sukses. Aku tahu semua yang Ibu lakukan, bahkan ketika terlihat keras, adalah demi kebaikanku. Aku sangat bersyukur memiliki Ibu seseorang yang begitu peduli, kuat, dan penuh kasih.
+                Di hari spesial ini, aku berdoa semoga Ibu selalu diberikan kesehatan, panjang umur, dan kebahagiaan. Semoga segala keinginan dan harapan Ibu di tahun ini dapat tercapai dengan mudah, dan semoga ibu tetap menjadi yang terbaik untuk keluarga. terimaksiih ibuu untuk semua hal yang telah di berikan, Aku sangat menyayangi Ibu     </p>
+        </div>
+    </div>
+
+    <!-- Section 3: Cake, Gift, and Video -->
+    <div class="section cake-gift">
+        <img src="cake.png" alt="Cake">
+        <img src="2.png" alt="Gift" onclick="toggleVideo()">
+        <div class="gift-instruction">Tekan hadiah untuk melihat kejutan!</div>
+        <div class="video-container" id="video-container">
+            <video controls>
+                <source src="3.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+
+    <!-- Balloons Container -->
+    <div id="balloon-container"></div>
+
+    <!-- Footer -->
+    <div class="footer">
+        Zaharani Zuardi Putri 2025
+    </div>
+
+    <script>
+        let isLetterVisible = false;
+        let isVideoVisible = false;
+
+        function toggleLetter() {
+            const letter = document.getElementById('letter');
+            isLetterVisible = !isLetterVisible;
+            letter.style.display = isLetterVisible ? 'block' : 'none';
+        }
+
+        function toggleVideo() {
+            const videoContainer = document.getElementById('video-container');
+            const balloonContainer = document.getElementById('balloon-container');
+            isVideoVisible = !isVideoVisible;
+
+            if (isVideoVisible) {
+                videoContainer.style.display = 'block';
+                createBalloons(20); // Generate 20 balloons
+            } else {
+                videoContainer.style.display = 'none';
+                balloonContainer.innerHTML = ''; // Remove balloons
+            }
+        }
+
+        function createBalloons(count) {
+            const container = document.getElementById('balloon-container');
+            for (let i = 0; i < count; i++) {
+                const balloon = document.createElement('div');
+                balloon.className = 'floating-balloon';
+                balloon.style.left = Math.random() * 100 + 'vw';
+                balloon.style.backgroundColor = getRandomColor();
+                container.appendChild(balloon);
+
+                // Remove the balloon after animation ends
+                balloon.addEventListener('animationend', () => balloon.remove());
+            }
+        }
+
+        function getRandomColor() {
+            const colors = ['red', 'blue', 'yellow', 'green', 'pink', 'orange'];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+    </script>
+</body>
+</html>
